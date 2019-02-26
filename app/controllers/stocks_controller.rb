@@ -6,7 +6,10 @@ class StocksController < ApplicationController
       @stock = Stock.new_from_search(params[:stock])
       #if not empty render to path
       if @stock
-        render 'users/portfolio'
+        #do AJAX
+        respond_to do |format|
+          format.js{ render partial: 'users/result' }
+        end
       #if invalid symbol display alert
       else
         flash[:danger] = "You have entered an invalid ticker symbol"
