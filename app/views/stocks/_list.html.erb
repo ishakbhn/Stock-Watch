@@ -1,0 +1,21 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Symbol</th>
+			<th>Price</th>
+			<% if @user.id == current_user.id%>
+				<th>Actions</th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% @user_stocks.each do |stock| %>
+			<tr>
+				<td><%= stock.name%></td>
+				<td><%= stock.symbol%></td>
+				<td><%= stock.ticker></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
