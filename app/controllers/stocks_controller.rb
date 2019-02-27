@@ -12,12 +12,17 @@ class StocksController < ApplicationController
         end
       #if invalid symbol display alert
       else
-        flash[:danger] = "You have entered an invalid ticker symbol"
-        redirect_to portfolio_path
+        respond_to do |format|
+          flash.now[:danger] = "You have entered an invalid ticker symbol"
+          format.js{ render partial: 'users/result' }
+        end
       end
+    # if empty search box display alerts
     else
-      flash[:danger] = "Please enter ticker symbol in search box"
-      redirect_to portfolio_path
+      respond_to do |format|
+        flash.now[:danger] = "Please enter ticker symbol in search box"
+        format.js{ render partial: 'users/result' }
+      end
     end
   end
 

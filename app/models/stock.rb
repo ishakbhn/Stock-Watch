@@ -1,4 +1,6 @@
 class Stock < ApplicationRecord
+  has_many :user_stocks
+  has_many :users, through: :users_stocks
 
   def self.new_from_search(ticker_symbol)
     begin
