@@ -62,3 +62,7 @@ footer {
 .add-btn {
     margin: 10px 0px 0px 0px;
 }
+
+span.glyphicon.glyphicon-user {
+    padding: 15px 15px;
+}
