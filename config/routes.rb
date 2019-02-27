@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'portfolio', to: 'users#portfolio'
   get 'search_stocks', to: 'stocks#search'
   get 'friends', to: 'users#friends'
+  get 'search_friends', to:'users#search'
   #path for create & destroy route
   resources :user_stocks, only: [:create, :destroy]
   resources :users, only: [:show]
