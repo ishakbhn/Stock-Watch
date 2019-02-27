@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
 
+  def full_name
+    return "#{first_name} #{last_name}}".strip if (first_name || last_name)
+    "Anonymous"
+  end
+
   # check is the stock alrd added in portfolio
   def stock_exist_alrd?(ticker_symbol)
     stock = Stock.find_by_ticker(ticker_symbol)

@@ -5,14 +5,20 @@
 
 <% if @stock %>
 	<div class="well result-block-form">
-		<strong>Symbol:</strong> <%= @stock.ticker	%>
-		<strong>Name:</strong> <%= @stock.name	%>
-		<strong>Price:</strong> USD <%= @stock.last_price	%>
+		<div>
+			<strong>Symbol:</strong> <%= @stock.ticker	%>
+		</div>
+		<div>
+			<strong>Name:</strong> <%= @stock.name	%>
+		</div>
+		<div>
+			<strong>Price:</strong> USD <%= @stock.last_price	%>
+		</div>
 		<!-- check if current user alrd hit 10 stocks limit and stock alrd exist in portfolio
 			if limit is not 10 and stock did not exist Add Button will appear -->
 		<% if current_user.can_add_stock?(@stock.ticker)%>
 			<!-- get user params and stock_ticker params -->
-			<%=link_to "Add to portfolio", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "btn btn-xs btn-primary", method: :post %>
+				<%=link_to "Add to portfolio", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "btn btn-xs btn-primary add-btn", method: :post %>
 		<% else %>
 			<!--display label cannot be added-->
 			<span class="label label-danger">

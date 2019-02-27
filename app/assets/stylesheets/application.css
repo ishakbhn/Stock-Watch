@@ -54,3 +54,11 @@ footer {
 .no-padding {
 	padding: 0 !important;
 }
+
+.left-padding {
+	padding-left: 15px !important;
+}
+
+.add-btn {
+    margin: 10px 0px 0px 0px;
+}
